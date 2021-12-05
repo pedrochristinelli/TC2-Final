@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Especialidade } from '../models/especialidade.model';
 import { Medico } from '../models/medico.model';
 import { AuthService } from '../services/auth.service';
+import { EspecialidadeService } from '../services/especialidade.service';
 import { MedicoService } from '../services/medico.service';
 import { ToastService } from '../services/toast.service';
 
@@ -12,11 +14,12 @@ import { ToastService } from '../services/toast.service';
 })
 export class CadastrarMedicosComponent implements OnInit {
 
+  listaEspecialidades: Especialidade[] = []
   especialidadeError : any;
   nomeError : any;
-  constructor(private toast: ToastService, private route: ActivatedRoute, private router: Router, private medicoService : MedicoService) { }
+  constructor(private toast: ToastService, private route: ActivatedRoute, private router: Router, private medicoService : MedicoService, private especialidadeService: EspecialidadeService) { }
   medicoForm: Medico = { id: 0, nome: "", idEspecialidade: 0, dataCadastro: ""}
-  especialidade: string = "";
+  especialidadeId: number = 0;
   isEdit: boolean = false;
   buttonText = "Cadastrar";
   titleText = "Cadastrar Medico";
@@ -25,6 +28,9 @@ export class CadastrarMedicosComponent implements OnInit {
     if(!localStorage.getItem('auth')){
       this.router.navigate(['/login']);
     } else {
+      this.especialidadeService.getEspecialidades().subscribe((response) => {
+        this.listaEspecialidades = response;
+      });
       if(this.route.snapshot.params.id){
         this.buttonText = "Salvar"
         this.titleText = "Editar Medico"
@@ -101,7 +107,7 @@ export class CadastrarMedicosComponent implements OnInit {
       const medicoEditavel = response.find((x: { id: number; }) => x.id == id);
       this.medicoForm.nome = medicoEditavel.nome;
       this.medicoForm.idEspecialidade = medicoEditavel.idEspecialidade;
-      this.especialidade = medicoEditavel.idEspecialidade;
+      this.especialidadeId = medicoEditavel.idEspecialidade;
       this.medicoForm.dataCadastro = medicoEditavel.dataCadastro;
     });
     

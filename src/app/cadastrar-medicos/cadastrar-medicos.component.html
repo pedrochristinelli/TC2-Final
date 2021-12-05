@@ -12,13 +12,8 @@
             <li class="field">
                 <label for="idade" class="label" >Especialidade</label>
                 <div class="select">
-                    <select [(ngModel)]="especialidade" (change)="setPlan($event)">
-                        <option value="6" [value]="6" [selected]="especialidade == '6'">Anestesista</option>
-                        <option value="1" [value]="1" [selected]="especialidade == '1'">Cardiologista</option>
-                        <option value="5" [value]="5" [selected]="especialidade == '5'">Cirurgia Geral</option>
-                        <option value="2" [value]="2" [selected]="especialidade == '2'">Oftalmologista</option>
-                        <option value="4" [value]="4" [selected]="especialidade == '4'">Oncologista</option>
-                        <option value="3" [value]="3" [selected]="especialidade == '3'">Ortopedista</option>
+                    <select [(ngModel)]="especialidadeId" (change)="setPlan($event)">
+                        <option *ngFor="let especialidade of listaEspecialidades" [value]="especialidade.id" [selected]="especialidadeId == especialidade.id">{{especialidade.nome | titlecase}}</option>
                     </select>
                   </div>
                 <span class="help">Esse campo é mandatório.</span>
