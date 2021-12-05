@@ -1,0 +1,22 @@
+<div class="column">
+    <h1 class="title has-text-centered">Login</h1>
+    <div class="columns is-centered">
+        <ul class="has-text-centered">
+            <li class="field">
+                <label class="label">Login
+                    <input type="email" class="input" [(ngModel)]="loginForm.login" placeholder="Login">
+                </label>
+            </li>
+            <li class="field">
+                <label class="label">Senha
+                    <input type="password" class="input" [(ngModel)]="loginForm.senha" placeholder="Senha">
+                </label>
+            </li>
+        
+            <button class="button is-link is-light" (click)="login()">Login</button>
+            <li>
+                <a routerLink="/cadastro">Não possui um login? Cadastre-se!</a>
+            </li>
+        </ul>
+    </div>
+</div>

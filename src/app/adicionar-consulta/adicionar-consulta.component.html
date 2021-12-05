@@ -1,0 +1,48 @@
+<div class="columns is-centered">
+    <form class="column is-half ">
+        <h1 class="title has-text-centered mb-3">Cadastrar Consulta</h1>
+        <ul class="has-text-centered">
+            <li class="field">
+                <label for="idade" class="label">Medico</label>
+                <div class="select">
+                    <select (change)="setMedico($event)">
+                        <option disabled selected value></option>
+                        <option *ngFor="let medico of listaMedicos" [value]="medico.id">{{medico.nome | titlecase}}</option>
+                    </select>
+                  </div>
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="medicoError" class="help">Não deve estar vazio.</span>
+            </li>
+
+            <li class="field">
+                <label for="idade" class="label">Paciente</label>
+                <div class="select">
+                    <select (change)="setPaciente($event)">
+                        <option disabled selected value></option>
+                        <option *ngFor="let paciente of listaPacientes" [value]="paciente.id">{{paciente.nome | titlecase}}</option>
+                    </select>
+                  </div>
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="pacienteError" class="help">Não deve estar vazio.</span>
+            </li>
+    
+            <li class="field">
+                <label for="idade" class="label">Data da consulta</label>
+                <input type="date" class="input" name="idade" [(ngModel)]="formConsulta.data">
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="dateError" class="help">Não deve estar vazio.</span>
+            </li>
+
+            <li class="field">
+                <label for="idade" class="label">Horario da consulta</label>
+                <input type="time" class="input" name="idade" [(ngModel)]="horario">
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="hourError" class="help">Não deve estar vazio.</span>
+            </li>
+    
+            <li class="field">
+                <button class="button is-link is-light" (click)="cadastro()">Cadastrar</button>
+            </li>
+        </ul>
+    </form>     
+</div>

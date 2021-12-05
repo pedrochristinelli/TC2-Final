@@ -1,0 +1,39 @@
+<div class="is-centered">
+    <h1 class="title has-text-centered mb-5">Consultas</h1>
+    <div class="columns is-centered">
+        <table class="table is-centered">
+            <thead>
+                <tr>
+                    <th class="has-text-centered">
+                        Medico
+                    </th>
+                    <th class="has-text-centered">
+                        Paciente
+                    </th>
+                    <th class="has-text-centered">
+                        Data
+                    </th>
+                    <th class="has-text-centered">
+                    
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let consulta of listaConsultas">
+                <tr>
+                    <td class="has-text-centered">
+                        {{consulta.nomeMedico | titlecase}}
+                    </td>
+                    <td class="has-text-centered">
+                        {{consulta.nomePaciente | titlecase}}
+                    </td>
+                    <td class="has-text-centered">
+                        {{consulta.data | date:'medium'}}
+                    </td>
+                    <td class="has-text-centered">
+                        <button class="button is-danger" (click)="removeConsulta(consulta.id)">Cancelar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

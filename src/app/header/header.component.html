@@ -1,0 +1,71 @@
+<nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+          
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" routerLink="/home">
+          Home
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Pacientes
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" routerLink="/listar-pacientes">
+              Listar Pacientes
+            </a>
+            <a class="navbar-item" routerLink="/cadastro-paciente">
+              Cadastrar Paciente
+            </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Medicos
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" routerLink="/listar-medicos">
+                Listar Medicos
+              </a>
+              <a class="navbar-item" routerLink="/cadastro-medico">
+                Cadastrar Medicos
+              </a>
+            </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Consultas
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" routerLink="/listar-consultas">
+              Todas as consultas
+            </a>
+            <a class="navbar-item" routerLink="/cadastro-consulta">
+              Nova consulta
+            </a>
+          </div>
+      </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-danger is-light" (click)="logout()">
+                <span>Logout</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

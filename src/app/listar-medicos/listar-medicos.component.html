@@ -1,0 +1,41 @@
+<div class="is-centered">
+    <h1 class="title has-text-centered mb-5"> Medicos Cadastrados</h1>
+    <div class="columns is-centered">
+        <table class="table is-centered">
+            <thead>
+                <tr>
+                    <th class="has-text-centered">
+                        Nome
+                    </th>
+                    <th class="has-text-centered">
+                        Data de Cadastro
+                    </th>
+                    <th class="has-text-centered">
+                        Especialidade
+                    </th>
+                    <th class="has-text-centered">
+                        Opções
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let medico of listaMedicos">
+                <tr>
+                    <td class="has-text-centered">
+                        {{medico.nome | titlecase}}
+                    </td>
+                    <td class="has-text-centered">
+                        {{medico.dataCadastro | date}}
+                    </td>
+                    <td class="has-text-centered">
+                        {{medico.idEspecialidade | especialidade}}
+                    </td>
+                    <td class="has-text-centered">
+                        <button class="button is-primary" [routerLink]="['consulta/', medico.id]">Visualizar Consultas</button>
+                        <button class="button is-warning" [routerLink]="['editar/', medico.id]">Editar Medico</button>
+                        <button class="button is-danger" (click)="removeMedico(medico.id)">Remover Medico</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+<app-header *ngIf="authService.isLoggedIn | async"></app-header>
+<toast-messages></toast-messages>
+<router-outlet></router-outlet>

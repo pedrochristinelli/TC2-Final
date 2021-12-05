@@ -1,0 +1,33 @@
+<div class="columns is-centered">
+    <form class="column is-half ">
+        <h1 class="title has-text-centered mb-3">{{titleText}}</h1>
+        <ul class="has-text-centered">
+            <li class="field">
+                <label for="nome" class="label" >Nome</label>
+                <input type="text" name="nome" class="input" placeholder="Nome" [(ngModel)]="medicoForm.nome">
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="nomeError" class="help">Não deve estar vazio.</span>
+            </li>
+    
+            <li class="field">
+                <label for="idade" class="label" >Especialidade</label>
+                <div class="select">
+                    <select [(ngModel)]="especialidade" (change)="setPlan($event)">
+                        <option value="6" [value]="6" [selected]="especialidade == '6'">Anestesista</option>
+                        <option value="1" [value]="1" [selected]="especialidade == '1'">Cardiologista</option>
+                        <option value="5" [value]="5" [selected]="especialidade == '5'">Cirurgia Geral</option>
+                        <option value="2" [value]="2" [selected]="especialidade == '2'">Oftalmologista</option>
+                        <option value="4" [value]="4" [selected]="especialidade == '4'">Oncologista</option>
+                        <option value="3" [value]="3" [selected]="especialidade == '3'">Ortopedista</option>
+                    </select>
+                  </div>
+                <span class="help">Esse campo é mandatório.</span>
+                <span *ngIf="especialidadeError" class="help">Não deve estar vazio.</span>
+            </li>
+    
+            <li class="field">
+                <button class="button is-link is-light" (click)="buttonExec()">{{buttonText}}</button>
+            </li>
+        </ul>
+    </form>     
+</div>
