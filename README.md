@@ -1,6 +1,7 @@
 # Tc2Final
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+Theis project was the Final Project on the Develpment Topics 2 class. This is basically a CRUD with login, custom pipes and it interacts with a rest api. 
 
 ## Development server
 
